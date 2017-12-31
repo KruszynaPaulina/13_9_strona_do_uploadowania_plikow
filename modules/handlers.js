@@ -37,3 +37,12 @@ exports.show = function(request, response) {
         response.end();
     });
 }
+
+exports.css = function(request, response) {
+    console.log("Rozpoczynam obsługę żądania css.");
+    fs.readFile("css/style.css", function(err, file) {
+        response.writeHead(200, {"Content-Type": "text/css"});
+        response.write(file);
+        response.end();
+    });
+}
